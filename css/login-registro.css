@@ -1,0 +1,269 @@
+/* Hace que el ancho incluya el relleno y los bordes */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    font-family: Arial, sans-serif;
+    color: #183f56;
+    background-color: #f3faff;
+}
+
+.tarjeta {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.portada {
+    position: relative;
+    isolation: isolate;
+
+    padding: 36px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: white;
+    background-color: #183f56;
+}
+
+.imagen-puerto {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: -2;
+}
+
+.portada::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(to bottom,
+            rgba(9, 43, 64, 0.25),
+            rgba(9, 43, 64, 0.05) 40%,
+            rgba(9, 43, 64, 0.85));
+
+    z-index: -1;
+}
+
+.marca {
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.etiqueta {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.texto-portada h1 {
+    margin: 12px 0;
+    max-width: 320px;
+    font-size: 38px;
+    line-height: 1.15;
+}
+
+.texto-portada>p:last-child {
+    max-width: 300px;
+    margin-bottom: 0;
+    line-height: 1.6;
+    color: #e1f3ff;
+}
+
+.acceso {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 36px clamp(24px, 5vw, 90px);
+    background-color: #f5fbff;
+}
+
+.bienvenida {
+    margin-top: 0;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #356580;
+}
+
+h2 {
+    margin: 12px 0;
+    font-size: 30px;
+    color: #123d58;
+}
+
+.acceso header>p:last-child {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #526d7e;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.campo input {
+    width: 100%;
+    padding: 13px 14px;
+
+    font: inherit;
+    color: #183f56;
+
+    background-color: #edf8ff;
+    border: 1px solid #648ca5;
+    border-radius: 8px;
+}
+
+.campo input::placeholder {
+    color: #637c8c;
+}
+
+.campo input:focus {
+    border-color: #164f70;
+    outline: 3px solid #cce8f8;
+}
+
+.recordar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 13px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.recordar input {
+    margin: 0;
+    accent-color: #205b7c;
+}
+
+.boton-entrar {
+    padding: 14px;
+
+    font: inherit;
+    font-weight: bold;
+    color: #173f59;
+
+    background-color: #d0edff;
+    border: 1px solid #477795;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-entrar:hover {
+    background-color: #b8e2fb;
+}
+
+.zona-google {
+    margin-top: 24px;
+    overflow: hidden;
+}
+
+.ola {
+    display: block;
+    width: 200%;
+    height: 40px;
+    fill: #d9f0ff;
+    animation: mover-ola 7s ease-in-out infinite alternate;
+}
+
+.contenido-google {
+    padding: 4px 20px 22px;
+    text-align: center;
+    background-color: #d9f0ff;
+    border-radius: 0 0 14px 14px;
+}
+
+.contenido-google p {
+    margin: 0 0 14px;
+    font-size: 13px;
+    color: #355b73;
+}
+
+.boton-google {
+    display: block;
+    padding: 12px;
+
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #183f56;
+
+    background-color: white;
+    border: 1px solid #537f98;
+    border-radius: 8px;
+
+    transition: background-color 0.2s;
+}
+
+.boton-google:hover {
+    background-color: #edf8ff;
+}
+
+.registro {
+    margin: 26px 0 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.registro a {
+    color: #164f70;
+    font-weight: bold;
+    text-underline-offset: 3px;
+}
+
+
+@keyframes mover-ola {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ola {
+        animation: none;
+    }
+}
